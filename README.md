@@ -17,6 +17,8 @@ https://www.inflearn.com/course/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA
 4. api/user/user.ctrl.js: 실제 컨트롤 함수들. db에서 필요한 데이터나 status 보냄
 
 그외
+
 sync-db.js: 모델 가져옴. db 동기화.
+
 models.js: 시퀼라이서 만들고, db랑 연동 시키고 모델 만듬.
 
