@@ -130,41 +130,6 @@ describe('POST /users',()=>{
         })
     })
 })
-/*
-describe('PUT /users/:id',()=>{
-    const users=[
-        {name:'aa'},
-        {name:'bb'},
-        {name:'cc'}
-    ];
-    before(()=>models.sequelize.sync({force:true}));
-    before(()=>models.User.bulkCreate(users));
-
-    describe('성공시',()=>{
-        it('변경된 name',(done)=>{
-            let name='aaa';
-            request(app).put('/users/3').send({name}).end((err,res)=>{
-                res.body.should.have.property('name',name);
-            })
-            done();
-        })
-    })
-    describe('실패시',()=>{
-        it('id 정수 아님 400',(done)=>{
-            request(app).put('/users/qq').expect(400).end(done);
-        })
-        it('이름 없음 400',(done)=>{
-            request(app).put('/users/1').send({}).expect(400).end(done);
-        })
-        it('없는 유저면 404',(done)=>{
-            request(app).put('/users/5/?newname=bbb').send({name:'foo'}).expect(404).end(done);
-        })
-        it('이름 중복 409',(done)=>{
-            request(app).put('/users/2/?newname=bb').send({name:'bek'}).expect(409).end(done);
-        })
-    })
-})
-*/
 
 describe('PUT /users/:id', ()=>{
     const users=[
@@ -172,7 +137,7 @@ describe('PUT /users/:id', ()=>{
         {name:'bb'},
         {name:'cc'}
     ];
-    //const users = [{name: 'alice'}, {name: 'bek'}, {name: 'chris'}];
+    
     before(()=>models.sequelize.sync({force:true}));
     before(()=>models.User.bulkCreate(users));
   
@@ -195,13 +160,7 @@ describe('PUT /users/:id', ()=>{
         it('없는 유저면 404',(done)=>{
             request(app).put('/users/5').send({name:'foo'}).expect(404).end(done);
         })
-        /*it('이름이 중복일 경우 409을 응답한다', done=>{
-            request(app)
-                .put('/users/3')
-                .send({name: 'bb'})
-                .expect(409)
-                .end(done);
-          })*/
+        
         it('이름 중복 409',(done)=>{
             request(app).put('/users/3').send({name:'bb'}).expect(409).end(done);
         })

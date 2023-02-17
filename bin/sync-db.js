@@ -10,7 +10,6 @@ const models = require('../models');
 
 //외부에서 쓰면 디비 동기화 되게 모듈(www.js에서 서버 킬때 사용)
 module.exports=() =>{ 
-    //return models.sequelize.sync({force: true});
 
     //test모드면 기존 디비 날리고 새로 만듬
     const options = {
